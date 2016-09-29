@@ -11,12 +11,8 @@ class Student
   def rating
     year_of_birth / (height + lets_in_name)
   end
-  
-  def lets_in_name
-    full_name.scan(/\w/).count
-  end
 
-  def <=>(other)
+  def <=>(other)     #Called as a method on the instantiated student object - see "sort" in students.rb
     rating <=> other.rating
   end
 
@@ -34,5 +30,9 @@ class Student
 
   def year_of_birth
     date_of_birth.year
+  end
+  
+  def lets_in_name
+    full_name.scan(/\w/).count
   end
 end

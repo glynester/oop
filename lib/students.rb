@@ -3,13 +3,14 @@ require 'yaml'
 require_relative 'student'
 
 students = YAML.load_file('students.yml')
-puts students; puts; puts
+puts students.inspect; puts; puts
 =begin
-{"first_name"=>"Sandrine", "last_name"=>"Ortiz", "date_of_birth"=>"18/06/1987", "height"=>152}
-{"first_name"=>"Kennith", "last_name"=>"Dibbert", "date_of_birth"=>"12/03/1972", "height"=>184}
-etc.
+[{"first_name"=>"Sandrine", "last_name"=>"Ortiz", "date_of_birth"=>"18/06/1987", "height"=>152}, 
+{"first_name"=>"Kennith", "last_name"=>"Dibbert", "date_of_birth"=>"12/03/1972", "height"=>184}, 
+{"first_name"=>"Laverne", "last_name"=>"Rowe", "date_of_birth"=>"09/01/1992",
+etc.]
 =end
-students.map! { |hash| Student.new(hash) }
+students.map! { |hash| Student.new(hash) }      #Creates an array of student objects
 puts students.inspect; puts; 
 =begin
 [#<Student:0x00000001a62240 @first_name="Sandrine", @last_name="Ortiz", @date_of_birth=#<Date: 1987-06-18 ((2446965j,0s,0n),+0s,2299161j)>, @height=152>, 
@@ -18,6 +19,14 @@ puts students.inspect; puts;
 #<Student:0x00000001a60d78 @first_name="Lloyd", @last_name="Marquardt", @date_of_birth=#<Date: 1959-11-17 ((2436890j,0s,0n),+0s,2299161j)>, @height=176>, 
 #<Student:0x00000001a60b48 @first_name="Mariano", @last_name="Weber", @date_of_birth=#<Date: 1979-10-31 ((2444178j,0s,0n),+0s,2299161j)>, @height=160>]
 =end
+
+puts "CCCCCCCCCCCCCCCCC"
+print students; puts;       #'Print' does not call the "to_s" ('puts' does) so this comes out as a hash.
+
+[#<Student:0x00000001e66f30 @first_name="Sandrine", @last_name="Ortiz", @date_of_birth=#<Date: 1987-06-18 ((2446965j,0s,0n),+0s,2299161j)>, @height=152>, 
+#<Student:0x00000001e659a0 @first_name="Kennith", @last_name="Dibbert", @date_of_birth=#<Date: 1972-03-12 ((24413
+#etc.
+puts "BBBBBBBBBBBBBBBBBBBBBB"
 
 puts students; puts;    #puts uses the "to_s" method which is set to return #{full_name}, rating: #{rating}"
 =begin
