@@ -9,8 +9,11 @@ class Student
   end
 
   def rating
-    letters_in_name = full_name.scan(/\w/).count
-    year_of_birth / (height + letters_in_name)
+    year_of_birth / (height + lets_in_name)
+  end
+  
+  def lets_in_name
+    full_name.scan(/\w/).count
   end
 
   def <=>(other)
